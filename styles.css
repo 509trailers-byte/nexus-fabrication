@@ -1,262 +1,726 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Fabrication | Custom Metal Fabrication Vancouver, WA</title>
-    <meta name="description" content="Custom fabrication, automotive performance parts, and equipment repair. Serving Vancouver, WA.">
-    <meta name="theme-color" content="#1a1a1a">
-    <link rel="stylesheet" href="styles.css">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Nexus Fabrication",
-        "image": "https://nexusfabrication.com/og-image.jpg",
-        "description": "Custom metal fabrication, automotive parts, equipment repair",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Vancouver",
-            "addressLocality": "Vancouver",
-            "addressRegion": "WA",
-            "postalCode": "98661",
-            "addressCountry": "US"
-        },
-        "telephone": "(360) 562-0477",
-        "url": "https://nexusfabrication.com"
+/* Nexus Fabrication - Professional Established Design */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --navy: #1a3a52;
+    --navy-light: #2a4a62;
+    --white: #ffffff;
+    --light-gray: #f5f5f5;
+    --medium-gray: #e8e8e8;
+    --dark-gray: #333333;
+    --text: #2c2c2c;
+    --text-light: #666666;
+    --accent-red: #cc3333;
+    --accent-red-dark: #991111;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: var(--white);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Navigation */
+.navbar {
+    background: var(--navy);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-brand {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--white);
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover {
+    color: var(--white);
+}
+
+.nav-phone {
+    color: var(--accent-red);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    margin-left: 2rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    padding-left: 2rem;
+}
+
+.nav-phone:hover {
+    color: #ff5555;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--navy-light);
+        flex-direction: column;
+        padding: 1.5rem 2rem;
+        gap: 1rem;
     }
-    </script>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#home" class="nav-brand">NEXUS</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#packages">Packages</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#quote">Get Quote</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="tel:+13605620477" class="nav-phone">(360) 562-0477</a></li>
-            </ul>
-            <button class="nav-toggle" id="navToggle">☰</button>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Custom Metal Fabrication</h1>
-            <p>Precision welding and fabrication for exhaust systems, structural repairs, and custom projects. Fast turnaround. Built right.</p>
-            <div class="hero-cta">
-                <a href="tel:+13605620477" class="btn btn-primary">☎ Call Now</a>
-                <a href="#quote" class="btn btn-secondary">Request Quote</a>
-            </div>
-        </div>
-        <div class="hero-accent"></div>
-    </section>
+    .nav-links.active {
+        display: flex;
+    }
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">⚙️</div>
-                <h3>Custom Fabrication</h3>
-                <p>Design, engineering, and fabrication of custom metal components. From brackets to frames to specialized structures, we build to spec.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔥</div>
-                <h3>Exhaust Systems</h3>
-                <p>Muffler deletes, cat-back systems, full custom builds. Custom piping, welding, and ceramic wrapping for performance and aesthetics.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔧</div>
-                <h3>Equipment Repair</h3>
-                <p>Structural repairs, diagnostics, and restoration. We repair and reinforce trailers, machinery, and industrial equipment.</p>
-            </div>
-        </div>
-    </section>
+    .nav-phone {
+        margin-left: 0;
+        border-left: none;
+        padding-left: 0;
+        display: block;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
 
-    <!-- Packages Section -->
-    <section id="packages" class="packages">
-        <h2>Project Packages</h2>
-        <div class="packages-grid">
-            <div class="package-card">
-                <div class="package-header">
-                    <h3>Exhaust Services</h3>
-                    <div class="package-price">Starting at <span>$300</span></div>
-                </div>
-                <ul class="package-list">
-                    <li>Muffler delete</li>
-                    <li>Cat delete / Resonator delete</li>
-                    <li>Catback exhaust systems</li>
-                    <li>Full custom exhaust builds</li>
-                    <li>Installation & tuning</li>
-                </ul>
-                <p class="package-note">Custom quotes based on your specific setup</p>
-                <a href="#quote" class="package-cta">Request Quote</a>
-            </div>
+    .nav-toggle {
+        display: block;
+    }
+}
 
-            <div class="package-card">
-                <div class="package-header">
-                    <h3>Equipment Repair</h3>
-                    <div class="package-price">Starting at <span>$400</span></div>
-                </div>
-                <ul class="package-list">
-                    <li>Structural assessment & planning</li>
-                    <li>Diagnostic & troubleshooting</li>
-                    <li>Parts sourcing & fabrication</li>
-                    <li>Professional installation</li>
-                    <li>Testing & quality assurance</li>
-                </ul>
-                <p class="package-note">Equipment-specific repair solutions</p>
-                <a href="#quote" class="package-cta">Request Quote</a>
-            </div>
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: var(--white);
+    padding: 8rem 2rem;
+    text-align: center;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-            <div class="package-card">
-                <div class="package-header">
-                    <h3>Custom Fabrication</h3>
-                    <div class="package-price">Custom <span>Pricing</span></div>
-                </div>
-                <ul class="package-list">
-                    <li>Concept & design consultation</li>
-                    <li>Engineering & blueprints</li>
-                    <li>Materials sourcing & prep</li>
-                    <li>Professional fabrication</li>
-                    <li>Finishing & delivery</li>
-                </ul>
-                <p class="package-note">Unlimited possibilities for custom projects</p>
-                <a href="#quote" class="package-cta">Request Quote</a>
-            </div>
-        </div>
-    </section>
+.hero-content {
+    max-width: 700px;
+}
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
-        <h2>Service Pricing</h2>
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <h3>Welding & Cutting</h3>
-                <div class="price">$85<span>/hour</span></div>
-                <p>MIG/TIG/Stick welding, plasma cutting, oxy-fuel work</p>
-            </div>
-            <div class="pricing-card">
-                <h3>Fabrication Labor</h3>
-                <div class="price">$75<span>/hour</span></div>
-                <p>Bending, grinding, assembly, custom design work</p>
-            </div>
-            <div class="pricing-card">
-                <h3>Material Sourcing</h3>
-                <div class="price">Cost</div>
-                <p>Plus 15% markup on all materials sourced</p>
-            </div>
-        </div>
-        <p class="pricing-note">Minimum quote: $150. Complex projects quoted on scope. All work includes inspection and adjustments.</p>
-    </section>
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
 
-    <!-- Quote Section -->
-    <section id="quote" class="quote-section">
-        <h2>Get a Quote</h2>
-        <div class="quote-container">
-            <form class="quote-form" id="quoteForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" placeholder="Your name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
-                    </div>
-                </div>
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    line-height: 1.8;
+}
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="(360) 555-0000">
-                    </div>
-                    <div class="form-group">
-                        <label for="service">Service Type *</label>
-                        <select id="service" name="service" required>
-                            <option value="">Select a service</option>
-                            <option value="exhaust">Exhaust Services</option>
-                            <option value="equipment">Equipment Repair</option>
-                            <option value="custom-fab">Custom Fabrication</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                </div>
+.hero-cta {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
-                <div class="form-group full-width">
-                    <label for="project-type">Project Type</label>
-                    <input type="text" id="project-type" name="project-type" placeholder="e.g., Catback exhaust, structural repair, custom bracket">
-                </div>
+/* Buttons */
+.btn {
+    padding: 0.9rem 2rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="timeline">Timeline</label>
-                        <select id="timeline" name="timeline">
-                            <option value="">Select timeline</option>
-                            <option value="urgent">ASAP (1-2 weeks)</option>
-                            <option value="normal">Standard (2-4 weeks)</option>
-                            <option value="flexible">Flexible</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="budget">Budget Range</label>
-                        <select id="budget" name="budget">
-                            <option value="">Select range</option>
-                            <option value="500">Under $500</option>
-                            <option value="1000">$500 - $1,000</option>
-                            <option value="2500">$1,000 - $2,500</option>
-                            <option value="5000">$2,500 - $5,000</option>
-                            <option value="custom">$5,000+</option>
-                            <option value="na">N/A</option>
-                        </select>
-                    </div>
-                </div>
+.btn-primary {
+    background: var(--accent-red);
+    color: white;
+}
 
-                <div class="form-group full-width">
-                    <label for="description">Project Description *</label>
-                    <textarea id="description" name="description" rows="6" placeholder="Tell us about your project, materials needed, any reference images or specs..." required></textarea>
-                </div>
+.btn-primary:hover {
+    background: var(--accent-red-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(204, 51, 51, 0.3);
+}
 
-                <div class="form-footer">
-                    <button type="submit" class="cta-button">Send Quote Request</button>
-                    <p class="form-note" id="formMessage"></p>
-                    <p class="form-disclaimer">We'll review your request and respond within 24 hours</p>
-                </div>
-            </form>
-        </div>
-    </section>
+.btn-secondary {
+    background: var(--white);
+    color: var(--navy);
+}
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Contact</h2>
-        <div class="contact-info">
-            <div class="contact-item">
-                <h3>Phone</h3>
-                <a href="tel:+13605620477">(360) 562-0477</a>
-            </div>
-            <div class="contact-item">
-                <h3>Location</h3>
-                <p>Vancouver, WA 98661</p>
-            </div>
-            <div class="contact-item">
-                <h3>Hours</h3>
-                <p>Mon–Fri: 8am–5pm<br>Sat–Sun: By appointment</p>
-            </div>
-        </div>
-    </section>
+.btn-secondary:hover {
+    background: var(--light-gray);
+    transform: translateY(-2px);
+}
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2025 Nexus Fabrication. All rights reserved.</p>
-    </footer>
+.btn-call {
+    background: var(--accent-red);
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+.btn-call:hover {
+    background: var(--accent-red-dark);
+}
+
+/* Sections */
+section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--navy);
+    font-weight: 700;
+}
+
+/* Services */
+.services {
+    background: var(--white);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.service-card {
+    padding: 2.5rem;
+    border: 2px solid var(--medium-gray);
+    transition: all 0.3s ease;
+    background: var(--white);
+}
+
+.service-card:hover {
+    border-color: var(--accent-red);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--navy);
+    font-weight: 600;
+}
+
+.service-card p {
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+/* Packages */
+.packages {
+    background: var(--light-gray);
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2.5rem;
+}
+
+.package-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border: 2px solid var(--medium-gray);
+    transition: all 0.3s ease;
+}
+
+.package-card:hover {
+    border-color: var(--accent-red);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.package-card h3 {
+    font-size: 1.4rem;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.package-price {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.package-price span {
+    display: block;
+    font-size: 2rem;
+    color: var(--accent-red);
+    font-weight: 700;
+    font-family: 'IBM Plex Mono', monospace;
+    margin-top: 0.5rem;
+}
+
+.package-list {
+    list-style: none;
+    margin: 2rem 0;
+}
+
+.package-list li {
+    padding: 0.8rem 0;
+    color: var(--text-light);
+    border-bottom: 1px solid var(--medium-gray);
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.package-list li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-red);
+    font-weight: 700;
+}
+
+.package-list li:last-child {
+    border-bottom: none;
+}
+
+.package-note {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+/* Pricing */
+.pricing {
+    background: var(--white);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.pricing-card {
+    background: var(--light-gray);
+    padding: 2rem;
+    border: 2px solid var(--medium-gray);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+    border-color: var(--accent-red);
+}
+
+.pricing-card h3 {
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.pricing-card .price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-red);
+    margin: 1.5rem 0;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.pricing-card .price span {
+    font-size: 0.5em;
+    color: var(--text-light);
+}
+
+.pricing-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* Portfolio */
+.portfolio {
+    background: var(--white);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.portfolio-item {
+    background: var(--light-gray);
+    border: 2px solid var(--medium-gray);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.portfolio-item:hover {
+    border-color: var(--accent-red);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #e8e8e8, #d8d8d8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.portfolio-item h3 {
+    padding: 1.5rem;
+    padding-bottom: 0.5rem;
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.portfolio-item p {
+    padding: 0 1.5rem 1.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Quote Section */
+.quote-section {
+    background: var(--light-gray);
+}
+
+.quote-container {
+    max-width: 650px;
+}
+
+.quote-form {
+    background: var(--white);
+    padding: 3rem;
+    border: 2px solid var(--medium-gray);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    margin-bottom: 0.6rem;
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.9rem;
+    background: var(--light-gray);
+    border: 2px solid var(--medium-gray);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-light);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-red);
+    background: var(--white);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.form-footer {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--medium-gray);
+}
+
+.form-footer .btn {
+    width: 100%;
+}
+
+.form-note {
+    margin-top: 1rem;
+    color: var(--accent-red);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Contact */
+.contact {
+    background: var(--navy);
+    color: var(--white);
+}
+
+.contact h2 {
+    color: var(--white);
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.contact-item h3 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.contact-item a {
+    color: var(--accent-red);
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+}
+
+.contact-item a:hover {
+    opacity: 0.8;
+}
+
+.contact-item p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* Footer */
+.footer {
+    background: var(--navy-light);
+    text-align: center;
+    padding: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+}
+
+/* Portfolio Page */
+.portfolio-hero {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.portfolio-hero h1 {
+    font-size: 2.8rem;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.portfolio-hero p {
+    color: var(--text-light);
+    font-size: 1.05rem;
+}
+
+.portfolio-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.portfolio-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2.5rem;
+}
+
+.portfolio-card {
+    background: var(--light-gray);
+    border: 2px solid var(--medium-gray);
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.portfolio-card:hover {
+    border-color: var(--accent-red);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-placeholder {
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(135deg, #e8e8e8, #d8d8d8);
+    border: 2px solid var(--medium-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.portfolio-card h3 {
+    font-size: 1.2rem;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.portfolio-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+}
+
+.project-type {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.portfolio-cta {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.portfolio-cta h2 {
+    color: var(--navy);
+    margin-bottom: 1rem;
+}
+
+.portfolio-cta p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    section {
+        padding: 3rem 1.5rem;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

@@ -31,8 +31,9 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-brand">NEXUS</div>
+            <a href="#" class="nav-brand">NEXUS</a>
             <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#packages">Packages</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
@@ -44,7 +45,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="home" class="hero">
         <div class="hero-content">
             <h1>Custom Metal Fabrication</h1>
             <p>Precision craftsmanship for custom fabrication, performance parts, and equipment repair.</p>
@@ -192,36 +193,76 @@
     <!-- Quote Section -->
     <section id="quote" class="quote-section">
         <h2>Get a Quote</h2>
-        <form class="quote-form" id="quoteForm">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone</label>
-                <input type="tel" id="phone" name="phone">
-            </div>
-            <div class="form-group">
-                <label for="service">Service Type</label>
-                <select id="service" name="service" required>
-                    <option value="">Select a service</option>
-                    <option value="custom-fab">Custom Fabrication</option>
-                    <option value="auto-perf">Automotive & Performance</option>
-                    <option value="repair">Equipment Repair</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="description">Project Description</label>
-                <textarea id="description" name="description" rows="5" placeholder="Describe your project, materials, and timeline..." required></textarea>
-            </div>
-            <button type="submit" class="cta-button">Send Quote Request</button>
-            <p class="form-note" id="formMessage"></p>
-        </form>
+        <div class="quote-container">
+            <form class="quote-form" id="quoteForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(360) 555-0000">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Type *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="exhaust">Exhaust Services</option>
+                            <option value="equipment">Equipment Repair</option>
+                            <option value="custom-fab">Custom Fabrication</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="project-type">Project Type</label>
+                    <input type="text" id="project-type" name="project-type" placeholder="e.g., Catback exhaust, structural repair, custom bracket">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="timeline">Timeline</label>
+                        <select id="timeline" name="timeline">
+                            <option value="">Select timeline</option>
+                            <option value="urgent">ASAP (1-2 weeks)</option>
+                            <option value="normal">Standard (2-4 weeks)</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Budget Range</label>
+                        <select id="budget" name="budget">
+                            <option value="">Select range</option>
+                            <option value="500">Under $500</option>
+                            <option value="1000">$500 - $1,000</option>
+                            <option value="2500">$1,000 - $2,500</option>
+                            <option value="5000">$2,500 - $5,000</option>
+                            <option value="custom">$5,000+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="description">Project Description *</label>
+                    <textarea id="description" name="description" rows="6" placeholder="Tell us about your project, materials needed, any reference images or specs..." required></textarea>
+                </div>
+
+                <div class="form-footer">
+                    <button type="submit" class="cta-button">Send Quote Request</button>
+                    <p class="form-note" id="formMessage"></p>
+                    <p class="form-disclaimer">We'll review your request and respond within 24 hours</p>
+                </div>
+            </form>
+        </div>
     </section>
 
     <!-- Contact Section -->

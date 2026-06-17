@@ -1,12 +1,20 @@
-// Nexus Fabrication - Main JavaScript
+// Nexus Fabrication - Main JavaScript (Enhanced)
 
 // Mobile nav toggle
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.querySelector('.nav-links');
 
 if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navLinks.classList.toggle('active');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.navbar')) {
+            navLinks.classList.remove('active');
+        }
     });
 }
 
@@ -31,26 +39,24 @@ if (quoteForm) {
             formMessage.textContent = 'Sending...';
             formMessage.style.color = 'var(--text-muted)';
 
-            // For now, just show success message
-            // In production, this would post to a backend API (Supabase)
-            await new Promise(resolve => setTimeout(resolve, 500));
+            // Simulate network delay
+            await new Promise(resolve => setTimeout(resolve, 800));
 
-            formMessage.textContent = 'Quote request received! We\'ll be in touch within 24 hours.';
+            formMessage.textContent = '✓ Quote request received! We\'ll be in touch within 24 hours.';
             formMessage.style.color = 'var(--accent-blue)';
 
-            // Log to console for demonstration
             console.log('Quote request:', formData);
 
             // Clear form
             quoteForm.reset();
 
-            // Clear message after 5 seconds
+            // Clear message after 6 seconds
             setTimeout(() => {
                 formMessage.textContent = '';
-            }, 5000);
+            }, 6000);
 
         } catch (error) {
-            formMessage.textContent = 'Error sending request. Please call (360) 562-0477.';
+            formMessage.textContent = '✕ Error sending request. Please call (360) 562-0477.';
             formMessage.style.color = '#ff6b6b';
             console.error('Form error:', error);
         }
@@ -68,23 +74,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
             // Close mobile nav if open
             if (navLinks) {
-                navLinks.style.display = 'none';
+                navLinks.classList.remove('active');
             }
         }
     });
 });
 
-// Fade in sections on scroll
+// Fade in sections on scroll with stagger
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.style.animation = `slideUp 0.8s ease-out ${index * 0.1}s forwards`;
             observer.unobserve(entry.target);
         }
     });
@@ -92,8 +97,6 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('section').forEach(section => {
     section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(section);
 });
 
@@ -114,6 +117,15 @@ window.addEventListener('scroll', () => {
         link.classList.remove('active');
         if (link.getAttribute('href').slice(1) === current) {
             link.classList.add('active');
+            link.style.color = 'var(--accent-blue)';
+        } else {
+            link.style.color = 'var(--text-light)';
         }
     });
+});
+
+// Service cards stagger animation
+const serviceCards = document.querySelectorAll('.service-card');
+serviceCards.forEach((card, index) => {
+    card.style.animation = `slideUp 0.6s ease-out ${0.2 + index * 0.15}s backwards`;
 });

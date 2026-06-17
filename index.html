@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Fabrication | Custom Metal Fabrication</title>
+    <meta name="description" content="Custom metal fabrication, welding, and equipment repair in Vancouver, WA">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Sora', sans-serif;
+            background: #ffffff;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: #1a3a52;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-brand {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .nav-phone {
+            color: #ff4444;
+            font-weight: 600;
+            margin-left: 2rem;
+            padding-left: 2rem;
+            border-left: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #1a3a52 0%, #2a4a62 100%);
+            color: #ffffff;
+            padding: 8rem 2rem;
+            text-align: center;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.9rem 2rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #ff4444;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #cc0000;
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: #1a3a52;
+        }
+
+        .btn-secondary:hover {
+            background: #f5f5f5;
+        }
+
+        /* Sections */
+        section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a3a52;
+            font-weight: 700;
+        }
+
+        /* Services */
+        .services {
+            background: #ffffff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            padding: 2.5rem;
+            border: 2px solid #e8e8e8;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: #ff4444;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1a3a52;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #666666;
+            line-height: 1.8;
+        }
+
+        /* Packages */
+        .packages {
+            background: #f5f5f5;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .package-card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border: 2px solid #e8e8e8;
+            transition: all 0.3s ease;
+        }
+
+        .package-card:hover {
+            border-color: #ff4444;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .package-card h3 {
+            font-size: 1.4rem;
+            color: #1a3a52;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .package-price {
+            font-size: 0.85rem;
+            color: #666666;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-price span {
+            display: block;
+            font-size: 2rem;
+            color: #ff4444;
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+
+        .package-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .package-list li {
+            padding: 0.8rem 0 0.8rem 1.5rem;
+            color: #666666;
+            border-bottom: 1px solid #e8e8e8;
+            position: relative;
+        }
+
+        .package-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ff4444;
+            font-weight: 700;
+        }
+
+        /* Pricing */
+        .pricing {
+            background: #ffffff;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-card {
+            background: #f5f5f5;
+            padding: 2rem;
+            border: 2px solid #e8e8e8;
+            text-align: center;
+        }
+
+        .pricing-card h3 {
+            color: #1a3a52;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ff4444;
+            margin: 1.5rem 0;
+        }
+
+        .pricing-card p {
+            color: #666666;
+            font-size: 0.95rem;
+        }
+
+        /* Portfolio */
+        .portfolio {
+            background: #ffffff;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            background: #f5f5f5;
+            border: 2px solid #e8e8e8;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            border-color: #ff4444;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #e8e8e8, #d8d8d8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666666;
+        }
+
+        .portfolio-item h3 {
+            padding: 1.5rem;
+            color: #1a3a52;
+            font-weight: 600;
+        }
+
+        .portfolio-item p {
+            padding: 0 1.5rem 1.5rem;
+            color: #666666;
+            font-size: 0.9rem;
+        }
+
+        /* Quote */
+        .quote-section {
+            background: #f5f5f5;
+        }
+
+        .quote-container {
+            max-width: 650px;
+        }
+
+        .quote-form {
+            background: #ffffff;
+            padding: 3rem;
+            border: 2px solid #e8e8e8;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            margin-bottom: 0.6rem;
+            color: #1a3a52;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.9rem;
+            background: #f5f5f5;
+            border: 2px solid #e8e8e8;
+            color: #2c2c2c;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff4444;
+            background: #ffffff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .form-footer {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e8e8e8;
+        }
+
+        .form-footer .btn {
+            width: 100%;
+        }
+
+        .form-note {
+            margin-top: 1rem;
+            color: #ff4444;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Contact */
+        .contact {
+            background: #1a3a52;
+            color: #ffffff;
+        }
+
+        .contact h2 {
+            color: #ffffff;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item h3 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-item a {
+            color: #ff4444;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item p {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2a4a62;
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.2rem; }
+            section { padding: 3rem 1.5rem; }
+            .hero-cta { flex-direction: column; }
+            .hero-cta .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-brand">NEXUS</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#quote">Get Quote</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="tel:+13605620477" class="nav-phone">(360) 562-0477</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Custom Metal Fabrication</h1>
+            <p>Precision welding and fabrication for exhaust systems, structural repairs, and custom projects. Fast turnaround. Built right.</p>
+            <div class="hero-cta">
+                <a href="tel:+13605620477" class="btn btn-primary">☎ Call Now</a>
+                <a href="#quote" class="btn btn-secondary">Request Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🔥</div>
+                <h3>Custom Fabrication</h3>
+                <p>Custom metal fabrication for any project. From concept to completion, we handle it all with precision and attention to detail.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Exhaust Systems</h3>
+                <p>High-performance exhaust systems and custom headers. Engineered for flow and built to last.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Equipment Repair</h3>
+                <p>Structural repairs and fabrication for equipment. We fix what others can't.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages -->
+    <section id="packages" class="packages">
+        <h2>Service Packages</h2>
+        <div class="packages-grid">
+            <div class="package-card">
+                <h3>Exhaust Services</h3>
+                <div class="package-price">Starting at <span>$300</span></div>
+                <ul class="package-list">
+                    <li>Custom headers</li>
+                    <li>Exhaust fabrication</li>
+                    <li>Muffler work</li>
+                    <li>Installation</li>
+                </ul>
+                <a href="#quote" class="btn btn-primary" style="width: 100%;">Request Quote</a>
+            </div>
+            <div class="package-card">
+                <h3>Equipment Repair</h3>
+                <div class="package-price">Starting at <span>$400</span></div>
+                <ul class="package-list">
+                    <li>Structural repairs</li>
+                    <li>Frame work</li>
+                    <li>Brackets & mounts</li>
+                    <li>Custom solutions</li>
+                </ul>
+                <a href="#quote" class="btn btn-primary" style="width: 100%;">Request Quote</a>
+            </div>
+            <div class="package-card">
+                <h3>Custom Fabrication</h3>
+                <div class="package-price">Custom <span>Pricing</span></div>
+                <ul class="package-list">
+                    <li>Custom design</li>
+                    <li>CAD drawings</li>
+                    <li>Prototyping</li>
+                    <li>Production runs</li>
+                </ul>
+                <a href="#quote" class="btn btn-primary" style="width: 100%;">Request Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <h2>Hourly Rates</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Welding</h3>
+                <div class="price">$85<span>/hr</span></div>
+                <p>Professional MIG, TIG, and stick welding services</p>
+            </div>
+            <div class="pricing-card">
+                <h3>Fabrication</h3>
+                <div class="price">$75<span>/hr</span></div>
+                <p>Custom cutting, shaping, and assembly work</p>
+            </div>
+            <div class="pricing-card">
+                <h3>Materials</h3>
+                <div class="price">+15%</div>
+                <p>All materials marked up 15% over cost</p>
+            </div>
+        </div>
+        <p style="text-align: center; color: #666666; margin-top: 2rem;">Free consultation on all projects. Estimates provided within 24 hours.</p>
+    </section>
+
+    <!-- Quote Form -->
+    <section id="quote" class="quote-section">
+        <h2 style="text-align: center;">Request a Quote</h2>
+        <div class="quote-container">
+            <form class="quote-form" onsubmit="handleQuote(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Service Type</label>
+                        <select required>
+                            <option>Select a service</option>
+                            <option>Exhaust Systems</option>
+                            <option>Equipment Repair</option>
+                            <option>Custom Fabrication</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Timeline</label>
+                        <select required>
+                            <option>Select timeline</option>
+                            <option>ASAP</option>
+                            <option>1-2 weeks</option>
+                            <option>2-4 weeks</option>
+                            <option>Flexible</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Budget</label>
+                        <select required>
+                            <option>Select budget</option>
+                            <option>Under $500</option>
+                            <option>$500-$1K</option>
+                            <option>$1K-$2.5K</option>
+                            <option>$2.5K-$5K</option>
+                            <option>$5K+</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label>Project Details</label>
+                    <textarea required placeholder="Tell us about your project..."></textarea>
+                </div>
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-primary">Send Quote Request</button>
+                    <p class="form-note">✓ We'll respond within 24 hours</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h3>Call Us</h3>
+                <a href="tel:+13605620477">(360) 562-0477</a>
+                <p>Available Mon-Fri 8am-5pm, Sat-Sun by appointment</p>
+            </div>
+            <div class="contact-item">
+                <h3>Location</h3>
+                <p>Vancouver, WA 98661</p>
+                <p>Local pickup and delivery available</p>
+            </div>
+            <div class="contact-item">
+                <h3>Hours</h3>
+                <p>Monday - Friday: 8am - 5pm</p>
+                <p>Saturday - Sunday: By appointment</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Nexus Fabrication. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function handleQuote(e) {
+            e.preventDefault();
+            alert('Quote request received! We will contact you within 24 hours.');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
